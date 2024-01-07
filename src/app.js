@@ -34,6 +34,14 @@ const server = http.createServer((request, response) => {
       response.end();
       break;
 
+    case "/?hello=":
+      response.statusCode = 400;
+      response.statusMessage = "Bad Request";
+      response.setHeader("Content-Type", "text/plain");
+      response.write(`Enter a name`);
+      response.end();
+      break;
+
     case "/":
       response.statusCode = 200;
       response.statusMessage = "OK";
